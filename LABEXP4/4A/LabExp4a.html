@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color and Image Changer</title>
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: red; /* Initial background color */
+  }
+
+  #container {
+    text-align: center;
+  }
+
+  #colorButton, #imageButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  #backgroundImage {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <button id="colorButton">Change Color</button>
+  <button id="imageButton">Change Image</button>
+  <div id="backgroundImage"></div>
+</div>
+<script>
+  const colors = ['green', 'blue', 'yellow', 'purple', 'red'];
+  const images = ['Flower1.jpg', 'Flower2.jpg', 'ColdCoffee.jpg', 'Espresso.jpg', 'HotCoffee.jpg'];
+
+  const colorButton = document.getElementById('colorButton');
+  const imageButton = document.getElementById('imageButton');
+  const backgroundImage = document.getElementById('backgroundImage');
+
+  let colorIndex = 0;
+  let imageIndex = 0;
+
+  colorButton.addEventListener('click', () => {
+    document.body.style.backgroundColor = colors[colorIndex];
+    backgroundImage.style.backgroundImage = 'none'; // Reset background image
+    colorIndex = (colorIndex + 1) % colors.length;
+  });
+
+  imageButton.addEventListener('click', () => {
+    backgroundImage.style.backgroundImage = `url(${images[imageIndex]})`;
+    document.body.style.backgroundColor = 'initial'; // Reset background color
+    colorIndex = 0; // Reset color index when changing the image
+    imageIndex = (imageIndex + 1) % images.length;
+  });
+</script>
+</body>
+</html>

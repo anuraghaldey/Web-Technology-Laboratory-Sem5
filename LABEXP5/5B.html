@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Append Anchor Tag</title>
+</head>
+<body>
+
+<div id="anchorContainer">
+</div>
+
+<button id="addAnchorBtn">Add Anchor</button>
+
+<script>
+document.getElementById("addAnchorBtn").addEventListener("click", function() {
+  var newAnchor = document.createElement("a");
+
+  newAnchor.href = "https://www.example.com/new-page";
+
+  newAnchor.textContent = "Click me to go to the new page";
+
+  document.getElementById("anchorContainer").appendChild(newAnchor);
+});
+</script>
+
+</body>
+</html>

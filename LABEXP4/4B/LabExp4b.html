@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Array Manipulation</title>
+</head>
+<body>
+  <div id="colorList"></div>
+  <input type="text" id="newColorInput" placeholder="Enter a new color">
+  <button id="addColorButton">Add Color</button>
+  
+  <script>
+    // Initial array of colors
+    let colors = ["Red", "Green", "Blue"];
+
+    // Function to update the color list on the screen
+    function updateColorList() {
+      const colorListDiv = document.getElementById("colorList");
+      colorListDiv.innerHTML = colors.map(color => `<div style="color: ${color.toLowerCase()}">${color}</div>`).join("");
+    }
+
+    // Function to check if a value is present in the array
+    function isInArray(value, array) {
+      return array.indexOf(value) !== -1;
+    }
+
+    // Function to add a value to the array if it's not already present
+    function addColorIfNotPresent(value, array) {
+      if (!isInArray(value, array)) {
+        array.push(value);
+        console.log(`Added '${value}' to the array.`);
+        updateColorList();
+      } else {
+        console.log(`'${value}' is already in the array.`);
+      }
+    }
+
+    const addColorButton = document.getElementById("addColorButton");
+    addColorButton.addEventListener("click", () => {
+      const newColorInput = document.getElementById("newColorInput");
+      const userInput = newColorInput.value.trim();
+
+      if (userInput) {
+        // Convert user input to title case (e.g., "red" -> "Red")
+        const formattedInput = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+
+        // Add the formatted input to the array if not already present
+        addColorIfNotPresent(formattedInput, colors);
+
+        // Clear the input field
+        newColorInput.value = "";
+      }
+    });
+
+    // Initial update of the color list
+    updateColorList();
+  </script>
+</body>
+</html>

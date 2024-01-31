@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anurag's Coffee Shop</title>
+    <link rel="stylesheet" href="LabExp2A.css">
+</head>
+
+<body>
+    <header>
+        <h1>Anurag's Coffee Shop</h1>
+    </header>
+    <main>
+        <div class="coffee-menu">
+            <h2>Menu</h2>
+            <table>
+                <tr>
+                    <td class="coffee-image">
+                        <img src="HotCoffee1.jpg" alt="Coffee Cup">
+                    </td>
+                    <td class="coffee-details">
+                        <h3>Regular Coffee</h3>
+                        <p>A classic cup of coffee.</p>
+                    </td>
+                    <td class="coffee-price">₹250.00</td>
+                    <td class="coffee-add-to-cart">
+                        <button onclick="addToCart('Regular Coffee', 250)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Add more coffee types here -->
+                <!-- Example for Espresso -->
+                <tr>
+                    <td class="coffee-image">
+                        <img src="Espresso.jpg" alt="Espresso">
+                    </td>
+                    <td class="coffee-details">
+                        <h3>Espresso</h3>
+                        <p>A concentrated shot of coffee.</p>
+                    </td>
+                    <td class="coffee-price">₹260.00</td>
+                    <td class="coffee-add-to-cart">
+                        <button onclick="addToCart('Espresso', 260)">Add to Cart</button>
+                    </td>
+                </tr>
+                <!-- Add more coffee types here -->
+                <tr>
+                    <td class="coffee-image">
+                        <img src="ColdCoffee.jpg" alt="Cold Coffee">
+                    </td>
+                    <td class="coffee-details">
+                        <h3>Cold Coffee</h3>
+                        <p>Cold coffee with Chocolate.</p>
+                    </td>
+                    <td class="coffee-price">₹270.00</td>
+                    <td class="coffee-add-to-cart">
+                        <button onclick="addToCart('Cold Coffee', 270)">Add to Cart</button>
+                    </td>
+                </tr>
+                </tr>
+                <td class="coffee-image">
+                    <img src="Americano.jpg" alt="Americano Coffee">
+                </td>
+                <td class="coffee-details">
+                    <h3>Americano</h3>
+                    <p>Dilluted espresso with hot water.</p>
+                </td>
+                <td class="coffee-price">₹290.00</td>
+                <td class="coffee-add-to-cart">
+                    <button onclick="addToCart('Cold Coffee', 270)">Add to Cart</button>
+                </td>
+                </tr>
+
+                <td class="coffee-image">
+                    <img src="Cappuccino.jpg" alt="Cappuccino">
+                </td>
+                <td class="coffee-details">
+                    <h3>Cappucino</h3>
+                    <p>Triple espresso shot with hot milk.</p>
+                </td>
+                <td class="coffee-price">₹300.00</td>
+                <td class="coffee-add-to-cart">
+                    <button onclick="addToCart('Cold Coffee', 270)">Add to Cart</button>
+                </td>
+                </tr>
+                <td class="coffee-image">
+                    <img src="Machhiato.jpg" alt="Macchiato">
+                </td>
+                <td class="coffee-details">
+                    <h3>Macchiato</h3>
+                    <p>Stained with espresso and foam.</p>
+                </td>
+                <td class="coffee-price">₹350.00</td>
+                <td class="coffee-add-to-cart">
+                    <button onclick="addToCart('Cold Coffee', 270)">Add to Cart</button>
+                </td>
+                </tr>
+                <!-- Add more coffee types here -->
+                <!-- Add more coffee types here -->
+                <!-- Continue adding the remaining coffee types -->
+            </table>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Anurag's Coffee Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cartItems = [];
+
+        function addToCart(coffeeType, price) {
+            cartItems.push({ coffeeType, price });
+            alert(coffeeType + " added to cart!");
+        }
+    </script>
+</body>
+
+</html>

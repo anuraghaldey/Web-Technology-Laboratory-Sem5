@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arithmetic Operations</title>
+</head>
+<body>
+  <h1>Arithmetic Operations</h1>
+  
+  <input type="number" id="num1" placeholder="Enter number 1">
+  <input type="number" id="num2" placeholder="Enter number 2">
+  
+  <button id="add">Add</button>
+  <button id="subtract">Subtract</button>
+  <button id="multiply">Multiply</button>
+  <button id="divide">Divide</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    const num1Input = document.getElementById('num1');
+    const num2Input = document.getElementById('num2');
+    const addButton = document.getElementById('add');
+    const subtractButton = document.getElementById('subtract');
+    const multiplyButton = document.getElementById('multiply');
+    const divideButton = document.getElementById('divide');
+    const resultElement = document.getElementById('result');
+    
+    addButton.addEventListener('click', () => performOperation('+'));
+    subtractButton.addEventListener('click', () => performOperation('-'));
+    multiplyButton.addEventListener('click', () => performOperation('*'));
+    divideButton.addEventListener('click', () => performOperation('/'));
+    
+    function performOperation(operator) {
+      const num1 = parseFloat(num1Input.value);
+      const num2 = parseFloat(num2Input.value);
+      let result;
+      
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          if (num2 !== 0) {
+            result = num1 / num2;
+          } else {
+            result = 'Cannot divide by zero';
+          }
+          break;
+        default:
+          result = 'Invalid operator';
+      }
+      
+      resultElement.textContent = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>

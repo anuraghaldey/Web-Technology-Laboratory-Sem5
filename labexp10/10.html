@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Circles jQuery Animation</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+
+      .animated-circle {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        position: relative;
+        display: none;
+        border-radius: 50%;
+        margin: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .animated-circle:hover {
+        background-color: #2ecc71;
+      }
+
+      #animate-button,
+      #reset-button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      #animate-button {
+        background-color: #27ae60;
+        color: #fff;
+      }
+
+      #reset-button {
+        background-color: #e74c3c;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animated-circle"></div>
+    <div class="animated-circle"></div>
+    <div class="animated-circle"></div>
+    <button id="animate-button">Animate</button>
+    <button id="reset-button">Reset</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        const colors = ["#3498db", "#e74c3c", "#f1c40f", "#2ecc71", "#9b59b6"];
+
+        $("#animate-button").click(function () {
+          $(this).hide();
+
+          $(".animated-circle").each(function (index) {
+            const $circle = $(this);
+            const randomColor = colors[index % colors.length];
+            $circle
+              .css({
+                backgroundColor: randomColor,
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+              })
+              .fadeIn(1000)
+              .effect("bounce", { times: 3 }, 800);
+            $circle.animate(
+              {
+                width: "200px",
+                height: "200px",
+              },
+              1000
+            );
+          });
+        });
+
+        $("#reset-button").click(function () {
+          $("#animate-button").show();
+          $(".animated-circle").fadeOut(500);
+        });
+      });
+    </script>
+  </body>
+</html>

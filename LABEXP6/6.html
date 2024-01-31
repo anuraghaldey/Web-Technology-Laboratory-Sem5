@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Application</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  
+  <div>
+    <input type="text" id="bookTitle" placeholder="Book Title">
+    <input type="text" id="bookPrice" placeholder="Book Price">
+    <button onclick="addBook()">Add Book</button>
+  </div>
+  
+  <ul id="bookList">
+  </ul>
+  
+  <script>
+    const bookList = document.getElementById('bookList');
+    const bookTitleInput = document.getElementById('bookTitle');
+    const bookPriceInput = document.getElementById('bookPrice');
+    
+    const books = [];
+    
+    function renderBooks() {
+      bookList.innerHTML = '';
+      
+      books.forEach((book, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${book.title} - $${book.price}</span>
+          <button onclick="updateBook(${index})">Update</button>
+          <button onclick="deleteBook(${index})">Delete</button>
+        `;
+        
+        bookList.appendChild(li);
+      });
+    }
+    
+    function addBook() {
+      const title = bookTitleInput.value;
+      const price = parseFloat(bookPriceInput.value);
+      
+      if (title && !isNaN(price)) {
+        books.push({ title, price });
+        renderBooks();
+        bookTitleInput.value = '';
+        bookPriceInput.value = '';
+      }
+    }
+    
+    function updateBook(index) {
+      const newTitle = prompt('Enter new title:');
+      const newPrice = parseFloat(prompt('Enter new price:'));
+      
+      if (newTitle && !isNaN(newPrice)) {
+        books[index].title = newTitle;
+        books[index].price = newPrice;
+        renderBooks();
+      }
+    }
+    
+    function deleteBook(index) {
+      books.splice(index, 1);
+      renderBooks();
+    }
+  </script>
+</body>
+</html>

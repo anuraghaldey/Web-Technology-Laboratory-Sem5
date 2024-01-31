@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Background Color Change</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+      margin: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+
+<ul id="colorList">
+  <li>Red</li>
+  <li>Green</li>
+  <li>Blue</li>
+  <li>Yellow</li>
+</ul>
+
+<script>
+var colorList = document.getElementById("colorList");
+var colors = ["red", "green", "blue", "yellow"];
+
+for (var i = 0; i < colorList.children.length; i++) {
+  colorList.children[i].addEventListener("click", function() {
+    var colorIndex = Array.from(colorList.children).indexOf(this);
+    document.body.style.backgroundColor = colors[colorIndex];
+  });
+}
+</script>
+
+</body>
+</html>

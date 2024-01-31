@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Append Row to Table</title>
+</head>
+<body>
+
+<table id="myTable" border="1">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>30</td>
+  </tr>
+</table>
+
+<input type="text" id="nameInput" placeholder="Enter Name">
+<input type="number" id="ageInput" placeholder="Enter Age">
+<button id="addRowBtn">Add Row</button>
+
+<script>
+document.getElementById("addRowBtn").addEventListener("click", function() {
+  // Get user input values
+  var newName = document.getElementById("nameInput").value;
+  var newAge = document.getElementById("ageInput").value;
+
+  var table = document.getElementById("myTable");
+
+  var newRow = table.insertRow();
+
+  var nameCell = newRow.insertCell(0);
+  var ageCell = newRow.insertCell(1);
+
+  nameCell.innerHTML = newName;
+  ageCell.innerHTML = newAge;
+
+  document.getElementById("nameInput").value = "";
+  document.getElementById("ageInput").value = "";
+});
+</script>
+
+</body>
+</html>
